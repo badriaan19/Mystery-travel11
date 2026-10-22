@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roata Destinațiilor | Mystery Travel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 50: '#f0f4f8', 100: '#d9e2ec', 800: '#1e293b', 900: '#0f172a' },
+                        amber: { 500: '#c5a45a', 600: '#b89a55', 700: '#92763c' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Arial', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-slate-900 flex items-center justify-center text-amber-600 font-bold text-xl shadow-sm">
+                    <i class="fa-solid me-0.5 fa-compass"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-serif font-bold text-slate-900 tracking-tight block leading-none">MYSTERY</span>
+                    <span class="text-xs font-semibold tracking-widest text-amber-600 uppercase">TRAVEL</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Acasă</a>
+                <a href="chestionar.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Chestionar</a>
+                <a href="roata.html" class="text-sm font-semibold text-amber-600 border-b-2 border-amber-600 pb-1">Roata Destinațiilor</a>
+                <a href="contact.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Contact</a>
+            </nav>
+
+            <a href="chestionar.html" class="hidden md:inline-flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-slate-800 transition shadow-sm">
+                <span>Chestionar</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow py-12">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            
+            <h1 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 mb-3">Roata Destinațiilor de Vacanță</h1>
+            <p class="text-slate-600 mb-8 max-w-xl mx-auto">Selectează bugetul dorit și învârte roata pentru a-ți descoperi destinația misterioasă!</p>
+
+            <div class="flex justify-center gap-3 mb-10 flex-wrap">
+                <button data-budget="all" aria-pressed="true" class="budget-btn active px-5 py-2 rounded-full border border-slate-300 font-semibold text-sm bg-slate-900 text-white shadow-sm">
+                    Toate Bugetele
+                </button>
+                <button data-budget="low" aria-pressed="false" class="budget-btn px-5 py-2 rounded-full border border-slate-300 font-semibold text-sm bg-white text-slate-700 hover:bg-slate-100 transition">
+                    Buget Redus (&lt; 500€)
+                </button>
+                <button data-budget="medium" aria-pressed="false" class="budget-btn px-5 py-2 rounded-full border border-slate-300 font-semibold text-sm bg-white text-slate-700 hover:bg-slate-100 transition">
+                    Buget Mediu (500€ - 1200€)
+                </button>
+                <button data-budget="luxury" aria-pressed="false" class="budget-btn px-5 py-2 rounded-full border border-slate-300 font-semibold text-sm bg-white text-slate-700 hover:bg-slate-100 transition">
+                    Exclusiv / Luxury (&gt; 1200€)
+                </button>
+            </div>
+
+            <div class="relative w-[340px] h-[340px] sm:w-[450px] sm:h-[450px] mx-auto mb-10">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-20 text-amber-600 text-4xl filter drop-shadow-md">
+                    <i class="fa-solid fa-location-pin"></i>
+                </div>
+                <canvas id="wheel-canvas" width="500" height="500" class="w-full h-full rounded-full shadow-lg border-4 border-white"></canvas>
+            </div>
+
+            <button id="spin-btn" class="px-10 py-4 bg-amber-600 text-white font-bold text-lg rounded-xl shadow-md hover:bg-amber-700 active:scale-95 transition">
+                <i class="fa-solid fa-rotate me-2"></i> ÎNVÂRTE ROATA
+            </button>
+
+        </div>
+    </main>
+
+    <div id="wheel-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center border border-slate-200 shadow-xl">
+            <span class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full inline-flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-trophy"></i>
+            </span>
+            <h3 class="text-xs font-bold uppercase tracking-wider text-amber-600 mb-1">Destinația Ta Câștigătoare:</h3>
+            <h2 id="modal-destination-title" class="text-3xl font-serif font-bold text-slate-900 mb-3"></h2>
+            <p id="modal-destination-price" class="text-lg font-bold text-slate-700 mb-6"></p>
+            
+            <div class="flex gap-3">
+                <button id="close-modal-btn" class="flex-1 py-3 border border-slate-300 font-bold rounded-xl text-slate-700 hover:bg-slate-50 transition">
+                    Închide
+                </button>
+                <a href="contact.html" class="flex-1 py-3 bg-amber-600 text-white font-bold rounded-xl text-center hover:bg-amber-700 transition">
+                    Rezervă Acum
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500">
+            &copy; Mystery Travel. Toate drepturile rezervate.
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

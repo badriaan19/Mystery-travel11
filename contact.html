@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Rezervări | Mystery Travel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 50: '#f0f4f8', 100: '#d9e2ec', 800: '#1e293b', 900: '#0f172a' },
+                        amber: { 500: '#c5a45a', 600: '#b89a55', 700: '#92763c' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Arial', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-slate-900 flex items-center justify-center text-amber-600 font-bold text-xl shadow-sm">
+                    <i class="fa-solid me-0.5 fa-compass"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-serif font-bold text-slate-900 tracking-tight block leading-none">MYSTERY</span>
+                    <span class="text-xs font-semibold tracking-widest text-amber-600 uppercase">TRAVEL</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Acasă</a>
+                <a href="chestionar.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Chestionar</a>
+                <a href="roata.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Roata Destinațiilor</a>
+                <a href="contact.html" class="text-sm font-semibold text-amber-600 border-b-2 border-amber-600 pb-1">Contact</a>
+            </nav>
+
+            <a href="chestionar.html" class="hidden md:inline-flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-slate-800 transition shadow-sm">
+                <span>Găsește Vacanța</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white border border-slate-200 rounded-2xl p-8 sm:p-12 shadow-sm">
+                <h1 class="text-3xl font-serif font-bold text-slate-900 mb-2">Contactează-ne pentru Rezervări</h1>
+                <p class="text-slate-600 mb-8">Ai obținut o destinație la roată sau ai terminat chestionarul? Trimite-ne un mesaj și organizăm totul!</p>
+
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Nume Complet</label>
+                            <input type="text" required placeholder="Ion Popescu" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-600 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Adresă Email</label>
+                            <input type="email" required placeholder="ion@example.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-600 outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Destinația Dorită / Opțiunea Obținută</label>
+                        <input type="text" placeholder="ex. Roma sau Aventură la munte" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-600 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Mesajul Tău</label>
+                        <textarea rows="4" placeholder="Specifică perioada dorită, numărul de persoane..." class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-600 outline-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-amber-600 text-white font-bold rounded-xl hover:bg-amber-700 transition shadow-md">
+                        Trimite Solicitarea
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500">
+            &copy; Mystery Travel. Toate drepturile rezervate.
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

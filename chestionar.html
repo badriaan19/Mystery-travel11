@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chestionar Personalitate | Mystery Travel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 50: '#f0f4f8', 100: '#d9e2ec', 800: '#1e293b', 900: '#0f172a' },
+                        amber: { 500: '#c5a45a', 600: '#b89a55', 700: '#92763c' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Arial', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-slate-900 flex items-center justify-center text-amber-600 font-bold text-xl shadow-sm">
+                    <i class="fa-solid me-0.5 fa-compass"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-serif font-bold text-slate-900 tracking-tight block leading-none">MYSTERY</span>
+                    <span class="text-xs font-semibold tracking-widest text-amber-600 uppercase">TRAVEL</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Acasă</a>
+                <a href="chestionar.html" class="text-sm font-semibold text-amber-600 border-b-2 border-amber-600 pb-1">Chestionar</a>
+                <a href="roata.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Roata Destinațiilor</a>
+                <a href="contact.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Contact</a>
+            </nav>
+
+            <a href="roata.html" class="hidden md:inline-flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-slate-800 transition shadow-sm">
+                <span>Încearcă Roata</span>
+                <i class="fa-solid fa-dharmachakra text-amber-500"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow py-12">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-10 shadow-sm mb-8">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Chestionar Personalitate</span>
+                    <span id="quiz-step-count" class="text-sm font-semibold text-slate-500">Întrebarea 1 din 8</span>
+                </div>
+
+                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden mb-8">
+                    <div id="quiz-progress-bar" class="bg-amber-600 h-full w-[12.5%] transition-all duration-300"></div>
+                </div>
+
+                <div id="quiz-container">
+                    <h2 id="quiz-question" class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mb-8">
+                        Se încarcă întrebarea...
+                    </h2>
+
+                    <div id="quiz-options" class="grid grid-cols-1 gap-4 mb-8">
+                    </div>
+
+                    <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                        <button id="quiz-prev-btn" class="px-5 py-2.5 border border-slate-300 rounded-lg text-slate-600 font-semibold text-sm hover:bg-slate-50 transition invisible">
+                            <i class="fa-solid fa-arrow-left me-2"></i> Înapoi
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quiz-result-view" class="hidden">
+                    <div class="text-center mb-8">
+                        <span class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full inline-flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </span>
+                        <h2 class="text-3xl font-serif font-bold text-slate-900 mb-2">Profilul Tău de Călătorie</h2>
+                        <p id="result-category-title" class="text-amber-600 font-bold text-xl mb-4"></p>
+                    </div>
+
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-8">
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-3">Destinații Recomandate Pentru Tine:</h3>
+                        <p id="result-destinations" class="text-xl font-serif font-bold text-slate-900 leading-relaxed"></p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="window.location.reload()" class="flex-1 py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition">
+                            Reia Chestionarul
+                        </button>
+                        <a href="contact.html" class="flex-1 py-3 bg-amber-600 text-white font-bold rounded-xl text-center hover:bg-amber-700 transition">
+                            Rezervă o Vacanță
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500">
+            &copy; Mystery Travel. Toate drepturile rezervate.
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

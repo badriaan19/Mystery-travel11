@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery Travel | Vacanță Misterioasă & Experiența ta Unică</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 50: '#f0f4f8', 100: '#d9e2ec', 800: '#1e293b', 900: '#0f172a' },
+                        amber: { 500: '#c5a45a', 600: '#b89a55', 700: '#92763c' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Arial', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-slate-900 flex items-center justify-center text-amber-600 font-bold text-xl shadow-sm">
+                    <i class="fa-solid me-0.5 fa-compass"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-serif font-bold text-slate-900 tracking-tight block leading-none">MYSTERY</span>
+                    <span class="text-xs font-semibold tracking-widest text-amber-600 uppercase">TRAVEL</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-semibold text-amber-600 border-b-2 border-amber-600 pb-1">Acasă</a>
+                <a href="chestionar.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Chestionar</a>
+                <a href="roata.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Roata Destinațiilor</a>
+                <a href="contact.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">Contact</a>
+            </nav>
+
+            <a href="chestionar.html" class="hidden md:inline-flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-slate-800 transition shadow-sm">
+                <span>Găsește Vacanța</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="bg-white border-b border-slate-200 py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold tracking-wide uppercase mb-6 border border-amber-200">
+                    <i class="fa-solid fa-compass"></i> Călătorii alese pentru tine
+                </span>
+                
+                <h1 class="text-3xl sm:text-5xl font-serif font-bold text-slate-900 mb-6 tracking-tight leading-tight max-w-4xl mx-auto">
+                    Alege între chestionarul de personalitate adaptat dorințelor tale sau lasă roata să decida vacanța ideală în funcție de buget.
+                </h1>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+                    <a href="chestionar.html" class="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-xl font-bold text-base hover:bg-slate-800 transition shadow-md flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-clipboard-question text-amber-500"></i>
+                        <span>Fă Chestionarul de Personalitate</span>
+                    </a>
+                    <a href="roata.html" class="w-full sm:w-auto px-8 py-4 bg-white border-2 border-slate-300 text-slate-800 rounded-xl font-bold text-base hover:bg-slate-50 hover:border-slate-400 transition flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-dharmachakra text-amber-600"></i>
+                        <span>Învârte Roata Destinațiilor</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <h2 class="text-2xl font-serif font-bold text-slate-900 mb-3">1. Chestionarul Smart</h2>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Răspunde la 8 întrebări simple despre modul tău de viață, dimineața ideală și preferințe. Algoritmul nostru îți calculează profilul de călătorie.
+                    </p>
+                    <a href="chestionar.html" class="text-amber-600 font-bold hover:text-amber-700 inline-flex items-center gap-2">
+                        <span>Începe Chestionarul</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-white border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-arrows-spin"></i>
+                    </div>
+                    <h2 class="text-2xl font-serif font-bold text-slate-900 mb-3">2. Roata cu Destinații</h2>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Alege bugetul de care dispui și învârte roata interactivă. Primești pe loc o destinație garantată plus detalii complete despre zbor și cazare.
+                    </p>
+                    <a href="roata.html" class="text-amber-600 font-bold hover:text-amber-700 inline-flex items-center gap-2">
+                        <span>Învârte Roata</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500">
+            &copy; Mystery Travel. Toate drepturile rezervate.
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
